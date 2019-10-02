@@ -1,0 +1,44 @@
+[![](https://jitpack.io/v/zladnrms/RoundableLayout.svg)](https://jitpack.io/#zladnrms/RoundableLayout)
+
+_RoundableLayout_ is an easy to make layout corenr round in an Android.
+
+## What's New in _Roudnable_ 1.0.0?
+
+- Publish Version
+
+## Customize Way
+
+_RoundableLayout_'s exacy way to round the edges, two conditions must be met.
+
+#### First
+
+<com.tistory.zladnrms.roundablelayout.RoundableLayout
+            android:id="@+id/layout_example"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@drawable/background_roundablelayout"
+            android:elevation="6dp"
+            android:translationZ="2dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:cornerLeftTop="40dp"
+            app:cornerRightTop="40dp"
+            app:cornerLeftBottom="40dp"
+            app:cornerRightBottom="40dp">
+
+##### @drawable/background_roundablelayout
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+
+    <solid android:color="#ffffff"/>
+    <corners android:topLeftRadius="40dp"
+             android:topRightRadius="40dp"
+             android:bottomLeftRadius="40dp"
+             android:bottomRightRadius="40dp"/>
+</shape>
