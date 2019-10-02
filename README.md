@@ -12,7 +12,7 @@ and it implements ConstraintLayout, so can directly handle inner layout)
 	allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }
+			maven { url 'https://www.jitpack.io' }
 		}
 	}
     
