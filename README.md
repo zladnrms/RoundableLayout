@@ -1,6 +1,7 @@
 [![](https://jitpack.io/v/zladnrms/RoundableLayout.svg)](https://jitpack.io/#zladnrms/RoundableLayout)
 
 _RoundableLayout_ is an easy to make layout corenr round in an Android.
+(and it implements ConstraintLayout, so can directly handle inner layout)
 
 ## What's New in _Roudnable_ 1.0.0?
 
