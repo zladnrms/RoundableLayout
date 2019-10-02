@@ -10,8 +10,7 @@ _RoundableLayout_ is an easy to make layout corenr round in an Android.
 
 _RoundableLayout_'s exacy way to round the edges, two conditions must be met.
 
-#### First
-
+#### in .xml
 <com.tistory.zladnrms.roundablelayout.RoundableLayout
             android:id="@+id/layout_example"
             android:layout_width="300dp"
@@ -29,6 +28,11 @@ _RoundableLayout_'s exacy way to round the edges, two conditions must be met.
             app:cornerRightTop="40dp"
             app:cornerLeftBottom="40dp"
             app:cornerRightBottom="40dp">
+            
+###### cornerLeftTop : Layout's left top round value. (If not noted, 0dp)
+###### cornerRightTop : Layout's right top round value. (If not noted, 0dp)
+###### cornerLeftBottom : Layout's left bottom round value. (If not noted, 0dp)
+###### cornerRightBottom : Layout's right bottom round value. (If not noted, 0dp)
 
 ##### @drawable/background_roundablelayout
 
