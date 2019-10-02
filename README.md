@@ -3,7 +3,7 @@
 _RoundableLayout_ is an easy to make layout corner round in an Android.
 and it implements ConstraintLayout, so can directly handle inner layout)
 
-## What's New in _Roudnable_ 1.0.0?
+## What's New in _RoundableLayout_ 1.0.0?
 
 - Publish Version
 
