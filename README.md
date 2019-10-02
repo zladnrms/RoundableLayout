@@ -11,7 +11,7 @@ _RoundableLayout_ is an easy to make layout corenr round in an Android.
 _RoundableLayout_'s exacy way to round the edges, two conditions must be met.
 
 #### in .xml
-<com.tistory.zladnrms.roundablelayout.RoundableLayout
+    <com.tistory.zladnrms.roundablelayout.RoundableLayout
             android:id="@+id/layout_example"
             android:layout_width="300dp"
             android:layout_height="300dp"
@@ -36,13 +36,30 @@ _RoundableLayout_'s exacy way to round the edges, two conditions must be met.
 
 ##### @drawable/background_roundablelayout
 
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="rectangle">
-
-    <solid android:color="#ffffff"/>
-    <corners android:topLeftRadius="40dp"
+        <solid android:color="#ffffff"/>
+        <corners android:topLeftRadius="40dp"
              android:topRightRadius="40dp"
              android:bottomLeftRadius="40dp"
              android:bottomRightRadius="40dp"/>
-</shape>
+    </shape>
+    
+
+
+# License
+
+    Copyright 2019 Wookun Kim
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
