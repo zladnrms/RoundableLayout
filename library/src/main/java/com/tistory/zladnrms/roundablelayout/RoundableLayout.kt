@@ -46,6 +46,7 @@ class RoundableLayout : ConstraintLayout {
             drawable.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
             drawable.setColor(Color.WHITE)
             background = drawable
+            clipChildren = false
         }
     }
 
