@@ -24,12 +24,7 @@ and it implements ConstraintLayout, so can directly handle inner layout)
 ## Customize Way
 
 _RoundableLayout_'s exact way to round the edges.
-You only need to know this.
-
-app:cornerLeftTop="40dp"
-app:cornerRightTop="40dp"
-app:cornerLeftBottom="40dp"
-app:cornerRightBottom="40dp"
+You only need to know 'cornerLeft Or right bottom Or top'
 
 #### in .xml
     <com.tistory.zladnrms.roundablelayout.RoundableLayout
