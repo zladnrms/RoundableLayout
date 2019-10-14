@@ -3,9 +3,9 @@
 _RoundableLayout_ is an easy to make layout corner round in an Android.
 and it implements ConstraintLayout, so can directly handle inner layout)
 
-## What's New in _RoundableLayout_ 1.0.0?
+## What's New in _RoundableLayout_ 1.0.1?
 
-- Publish Version
+- Update for convenience
 
 ## How to Setup
 
@@ -18,21 +18,19 @@ and it implements ConstraintLayout, so can directly handle inner layout)
     
 	dependencies {
 	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3' // maybe already exists or add
-	        implementation 'com.github.zladnrms:RoundableLayout:1.0.0'
+	        implementation 'com.github.zladnrms:RoundableLayout:1.0.1'
 	}
     
 ## Customize Way
 
-_RoundableLayout_'s exacy way to round the edges, two conditions must be met.
+_RoundableLayout_'s exact way to round the edges.
+You only need to know 'cornerLeft Or right bottom Or top'
 
 #### in .xml
     <com.tistory.zladnrms.roundablelayout.RoundableLayout
             android:id="@+id/layout_example"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:background="@drawable/background_roundablelayout"
             android:elevation="6dp"
             android:translationZ="2dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,24 +42,10 @@ _RoundableLayout_'s exacy way to round the edges, two conditions must be met.
             app:cornerLeftBottom="40dp"
             app:cornerRightBottom="40dp">
             
-###### cornerLeftTop : Layout's left top round value. (If not noted, 0dp)
-###### cornerRightTop : Layout's right top round value. (If not noted, 0dp)
-###### cornerLeftBottom : Layout's left bottom round value. (If not noted, 0dp)
-###### cornerRightBottom : Layout's right bottom round value. (If not noted, 0dp)
-
-##### @drawable/background_roundablelayout
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <shape xmlns:android="http://schemas.android.com/apk/res/android"
-       android:shape="rectangle">
-        <solid android:color="#ffffff"/>
-        <corners android:topLeftRadius="40dp"
-             android:topRightRadius="40dp"
-             android:bottomLeftRadius="40dp"
-             android:bottomRightRadius="40dp"/>
-    </shape>
-    
-##### they are native options in Android.
+###### cornerLeftTop : Layout's left top round value. (default = 0dp)
+###### cornerRightTop : Layout's right top round value. (default = 0dp)
+###### cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
+###### cornerRightBottom : Layout's right bottom round value. (default = 0dp)
 
 # License
 
