@@ -2,8 +2,10 @@ package com.tistory.zladnrms.roundablelayout
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Path
 import android.graphics.RectF
+import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.TypedValue
@@ -17,15 +19,34 @@ class RoundableLayout : ConstraintLayout {
     private var cornerRightBottom: Float = 0F
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        setBackgroundWithDrawable(attrs)
         setCornerRound(context, attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        setBackgroundWithDrawable(attrs)
         setCornerRound(context, attrs)
     }
 
     constructor(context: Context) : super(context) {
         setCornerRound(context, null)
+    }
+
+    private fun setBackgroundWithDrawable(attrs: AttributeSet?) {
+        attrs?.let {
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout)
+            cornerLeftTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
+            cornerRightTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
+            cornerLeftBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
+            cornerRightBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
+
+            typedArray.recycle()
+
+            val drawable = GradientDrawable()
+            drawable.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
+            drawable.setColor(Color.WHITE)
+            background = drawable
+        }
     }
 
     private fun setCornerRound(context: Context, attrs: AttributeSet?) {
