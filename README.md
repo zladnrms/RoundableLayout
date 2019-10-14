@@ -3,9 +3,9 @@
 _RoundableLayout_ is an easy to make layout corner round in an Android.
 and it implements ConstraintLayout, so can directly handle inner layout)
 
-## What's New in _RoundableLayout_ 1.0.0?
+## What's New in _RoundableLayout_ 1.0.1?
 
-- Publish Version
+- Update for convenience
 
 ## How to Setup
 
@@ -18,7 +18,7 @@ and it implements ConstraintLayout, so can directly handle inner layout)
     
 	dependencies {
 	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3' // maybe already exists or add
-	        implementation 'com.github.zladnrms:RoundableLayout:1.0.0'
+	        implementation 'com.github.zladnrms:RoundableLayout:1.0.1'
 	}
     
 ## Customize Way
@@ -47,10 +47,10 @@ app:cornerRightBottom="40dp"
             app:cornerLeftBottom="40dp"
             app:cornerRightBottom="40dp">
             
-###### cornerLeftTop : Layout's left top round value. (If not noted, 0dp)
-###### cornerRightTop : Layout's right top round value. (If not noted, 0dp)
-###### cornerLeftBottom : Layout's left bottom round value. (If not noted, 0dp)
-###### cornerRightBottom : Layout's right bottom round value. (If not noted, 0dp)
+###### cornerLeftTop : Layout's left top round value. (default = 0dp)
+###### cornerRightTop : Layout's right top round value. (default = 0dp)
+###### cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
+###### cornerRightBottom : Layout's right bottom round value. (default = 0dp)
 
 # License
 
