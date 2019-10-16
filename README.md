@@ -1,7 +1,7 @@
 [![](https://jitpack.io/v/zladnrms/RoundableLayout.svg)](https://jitpack.io/#zladnrms/RoundableLayout)
 
-_RoundableLayout_ is an easy to make layout corner round in an Android.
-and it implements ConstraintLayout, so can directly handle inner layout)
+_RoundableLayout_ is an easy to make round corner layout in an Android.
+And it implements ConstraintLayout, so you can directly handle inner layout, too.
 
 ## What's New in _RoundableLayout_ 1.0.1?
 
@@ -17,26 +17,19 @@ and it implements ConstraintLayout, so can directly handle inner layout)
 	}
     
 	dependencies {
-	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3' // maybe already exists or add
+	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
 	        implementation 'com.github.zladnrms:RoundableLayout:1.0.1'
 	}
     
-## Customize Way
-
-_RoundableLayout_'s exact way to round the edges.
-You only need to know 'cornerLeft Or right bottom Or top'
+## How to use
 
 #### in .xml
     <com.tistory.zladnrms.roundablelayout.RoundableLayout
             android:id="@+id/layout_example"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:elevation="6dp"
-            android:translationZ="2dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:elevation="5dp" // native shadow options
+            android:translationZ="5dp" // native shadow options
             app:cornerLeftTop="40dp"
             app:cornerRightTop="40dp"
             app:cornerLeftBottom="40dp"
