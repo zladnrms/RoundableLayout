@@ -7,9 +7,9 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
 
 <img src="./preview_image.jpg" width="200px" />
 
-## What's New in _RoundableLayout_ 1.0.1?
+## What's New in _RoundableLayout_ 1.0.2?
 
-- Update for convenience
+- Add Background Color Option.
 
 ## How to Setup
 
@@ -34,6 +34,7 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
             android:layout_height="300dp"
             android:elevation="5dp" // native shadow options
             android:translationZ="5dp" // native shadow options
+	    app:backgroundColor="#FFFFFF" // if TRANSPARENT, shadow do not apply.
             app:cornerLeftTop="40dp"
             app:cornerRightTop="40dp"
             app:cornerLeftBottom="40dp"
@@ -43,6 +44,7 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
 ###### cornerRightTop : Layout's right top round value. (default = 0dp)
 ###### cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
 ###### cornerRightBottom : Layout's right bottom round value. (default = 0dp)
+###### backgroundColor : Layout's background color value. (default = Color.WHITE)
 
 # License
 
