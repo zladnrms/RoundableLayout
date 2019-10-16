@@ -5,7 +5,7 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
 
 ## preview
 
-<img src="./preview.jpg" width="200px" />
+<img src="./preview_image.jpg" width="200px" />
 
 ## What's New in _RoundableLayout_ 1.0.1?
 
