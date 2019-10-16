@@ -34,7 +34,7 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
             android:layout_height="300dp"
             android:elevation="5dp" // native shadow options
             android:translationZ="5dp" // native shadow options
-	    app:backgroundColor="#FFFFFF" // if TRANSPARENT, shadow do not apply.
+            app:backgroundColor="#FFFFFF" // if TRANSPARENT, shadow do not apply.
             app:cornerLeftTop="40dp"
             app:cornerRightTop="40dp"
             app:cornerLeftBottom="40dp"
