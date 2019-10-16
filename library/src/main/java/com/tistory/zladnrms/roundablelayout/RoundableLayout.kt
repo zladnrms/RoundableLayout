@@ -7,6 +7,7 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.TypedValue
 
@@ -17,6 +18,7 @@ class RoundableLayout : ConstraintLayout {
     private var cornerRightTop: Float = 0F
     private var cornerLeftBottom: Float = 0F
     private var cornerRightBottom: Float = 0F
+    private var backgroundColor: String? = null
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         setBackgroundWithDrawable(attrs)
@@ -35,17 +37,21 @@ class RoundableLayout : ConstraintLayout {
     private fun setBackgroundWithDrawable(attrs: AttributeSet?) {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout)
-            cornerLeftTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
+            cornerLeftTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
             cornerRightTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
             cornerLeftBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
-            cornerRightBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
-
+            cornerRightBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
+            backgroundColor = typedArray.getString(R.styleable.RoundableLayout_backgroundColor)
             typedArray.recycle()
 
             val drawable = GradientDrawable()
-            drawable.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
-            drawable.setColor(Color.WHITE)
+            drawable.cornerRadii = floatArrayOf(cornerRightBottom, cornerRightBottom, cornerRightTop, cornerRightTop, cornerLeftTop, cornerLeftTop, cornerLeftBottom, cornerLeftBottom)
+
+            backgroundColor?.let {
+                drawable.setColor(Color.parseColor(it))
+            } ?: drawable.setColor(Color.WHITE)
             background = drawable
+
             clipChildren = false
         }
     }
