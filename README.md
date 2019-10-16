@@ -22,7 +22,7 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
     
 	dependencies {
 	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-	        implementation 'com.github.zladnrms:RoundableLayout:1.0.1'
+	        implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
 	}
     
 ## How to use
