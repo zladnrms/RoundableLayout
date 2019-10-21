@@ -11,34 +11,48 @@ And it implements ConstraintLayout, so you can directly handle inner layout, too
 
 - Add Background Color Option.
 
-## How to Setup
+		
+## Installation
 
-	allprojects {
+* **Gradle**
+
+Add it in your root build.gradle at the end of repositories:
+```gradle
+allprojects {
 		repositories {
 			...
 			maven { url 'https://www.jitpack.io' }
 		}
 	}
-    
-	dependencies {
-	        implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-	        implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
+```
+
+Add the dependency in your app build.gradle
+```gradle
+dependencies {
+		implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
+		implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
 	}
+```
+
     
 ## How to use
 
 #### in .xml
-    <com.tistory.zladnrms.roundablelayout.RoundableLayout
-            android:id="@+id/layout_example"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:elevation="5dp" // native shadow options
-            android:translationZ="5dp" // native shadow options
-            app:backgroundColor="#FFFFFF" // if TRANSPARENT, shadow do not apply.
-            app:cornerLeftTop="40dp"
-            app:cornerRightTop="40dp"
-            app:cornerLeftBottom="40dp"
-            app:cornerRightBottom="40dp">
+
+```xml
+   <com.tistory.zladnrms.roundablelayout.RoundableLayout
+    android:id="@+id/layout_example"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:elevation="5dp" // native shadow options
+    android:translationZ="5dp" // native shadow options
+    app:backgroundColor="#FFFFFF" // if TRANSPARENT, shadow do not apply.
+    app:cornerLeftTop="40dp"
+    app:cornerRightTop="40dp"
+    app:cornerLeftBottom="40dp"
+    app:cornerRightBottom="40dp">
+```
+    
             
 ###### cornerLeftTop : Layout's left top round value. (default = 0dp)
 ###### cornerRightTop : Layout's right top round value. (default = 0dp)
