@@ -29,11 +29,13 @@ class RoundableLayout : ConstraintLayout {
     }
 
     constructor(context: Context) : super(context) {
-
+        setBackgroundWithDrawable(null)
     }
 
     private fun setBackgroundWithDrawable(attrs: AttributeSet?) {
         attrs?.let {
+
+            //set corner radii
             context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout).apply {
                 cornerLeftTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
                 cornerRightTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
