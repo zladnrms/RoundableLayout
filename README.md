@@ -10,7 +10,7 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 
 ## Preview
 
-<img src="./preview_hagaren.png" width="200px" />
+<img src="./preview_hagaren.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />
 
 ## What's New in _RoundableLayout_ 1.0.3?
 
