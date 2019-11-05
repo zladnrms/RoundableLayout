@@ -5,7 +5,7 @@ _RoundableLayout_ is an easy to make round corner layout in an Android. And it i
 
 ## preview
 
-<img src="./preview_image.jpg" width="200px" /><img src="./preview_hagaren.jpg" width="200px" />
+<img src="./preview_image.jpg" width="200px" /><img src="./preview_hagaren.png" width="200px" />
 
 ## What's New in _RoundableLayout_ 1.0.2?
 
