@@ -58,11 +58,11 @@ dependencies {
 ```
     
             
-* `cornerLeftTop : Layout's left top round value. (default = 0dp)
-* `cornerRightTop : Layout's right top round value. (default = 0dp)
-* `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
-* `cornerRightBottom : Layout's right bottom round value. (default = 0dp)
-* `backgroundColor : Layout's background color value. (default = Color.WHITE)
+* `cornerLeftTop : Layout's left top round value. (default = 0dp)`
+* `cornerRightTop : Layout's right top round value. (default = 0dp)`
+* `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)`
+* `cornerRightBottom : Layout's right bottom round value. (default = 0dp)`
+* `backgroundColor : Layout's background color value. (default = Color.WHITE)`
 
 # License
 
