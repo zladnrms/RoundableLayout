@@ -1,15 +1,20 @@
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RoundableLayout-green.svg?style=true)](https://android-arsenal.com/details/1/7934)
-[![](https://jitpack.io/v/zladnrms/RoundableLayout.svg)](https://jitpack.io/#zladnrms/RoundableLayout)
+# RoundableLayout [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RoundableLayout-green.svg?style=true)](https://android-arsenal.com/details/1/7934) [![](https://jitpack.io/v/zladnrms/RoundableLayout.svg)](https://jitpack.io/#zladnrms/RoundableLayout)
+ 
+When you implement a round corner layout, RoundableLayout is the best choice.
 
-_RoundableLayout_ is an easy to make round corner layout in an Android. And it implements ConstraintLayout, so you can also handle inner layout directly.
+- Support AndroidX
+- Support round corner (clip children view default)
+- Support background color 
+- Implemented ConstraintLayout 
 
-## preview
 
-<img src="./preview_image.jpg" width="200px" /><img src="./preview_hagaren.png" width="200px" />
+## Preview
 
-## What's New in _RoundableLayout_ 1.0.2?
+<img src="./preview_hagaren.png" width="200px" />
 
-- Add Background Color Option.
+## What's New in _RoundableLayout_ 1.0.3?
+
+- code stablize
 
 		
 ## Installation
@@ -19,21 +24,20 @@ _RoundableLayout_ is an easy to make round corner layout in an Android. And it i
 Add it in your root build.gradle at the end of repositories:
 ```gradle
 allprojects {
-		repositories {
-			...
-			maven { url 'https://www.jitpack.io' }
-		}
-	}
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+    }
+}
 ```
 
 Add the dependency in your app build.gradle
 ```gradle
 dependencies {
-		implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-		implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
-	}
-```
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
+    implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
+}
 
+```
     
 ## How to use
 
@@ -54,11 +58,11 @@ dependencies {
 ```
     
             
-###### cornerLeftTop : Layout's left top round value. (default = 0dp)
-###### cornerRightTop : Layout's right top round value. (default = 0dp)
-###### cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
-###### cornerRightBottom : Layout's right bottom round value. (default = 0dp)
-###### backgroundColor : Layout's background color value. (default = Color.WHITE)
+* `cornerLeftTop : Layout's left top round value. (default = 0dp)
+* `cornerRightTop : Layout's right top round value. (default = 0dp)
+* `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)
+* `cornerRightBottom : Layout's right bottom round value. (default = 0dp)
+* `backgroundColor : Layout's background color value. (default = Color.WHITE)
 
 # License
 
