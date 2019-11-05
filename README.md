@@ -34,7 +34,7 @@ Add the dependency in your app build.gradle
 ```gradle
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-    implementation 'com.github.zladnrms:RoundableLayout:1.0.2'
+    implementation 'com.github.zladnrms:RoundableLayout:1.0.3'
 }
 
 ```
