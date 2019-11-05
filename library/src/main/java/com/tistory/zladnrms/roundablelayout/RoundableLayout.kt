@@ -22,54 +22,40 @@ class RoundableLayout : ConstraintLayout {
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         setBackgroundWithDrawable(attrs)
-        setCornerRound(context, attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         setBackgroundWithDrawable(attrs)
-        setCornerRound(context, attrs)
     }
 
     constructor(context: Context) : super(context) {
-        setCornerRound(context, null)
+
     }
 
     private fun setBackgroundWithDrawable(attrs: AttributeSet?) {
         attrs?.let {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout)
-            cornerLeftTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
-            cornerRightTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
-            cornerLeftBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
-            cornerRightBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
-            backgroundColor = typedArray.getString(R.styleable.RoundableLayout_backgroundColor)
-            typedArray.recycle()
+            context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout).apply {
+                cornerLeftTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
+                cornerRightTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
+                cornerLeftBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
+                cornerRightBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
+                backgroundColor = this.getString(R.styleable.RoundableLayout_backgroundColor)
+            }.run {
+                this.recycle()
+            }
 
-            val drawable = GradientDrawable()
-            drawable.cornerRadii = floatArrayOf(cornerRightBottom, cornerRightBottom, cornerRightTop, cornerRightTop, cornerLeftTop, cornerLeftTop, cornerLeftBottom, cornerLeftBottom)
+            //set background
+            GradientDrawable().apply {
+                this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
 
-            backgroundColor?.let {
-                drawable.setColor(Color.parseColor(it))
-            } ?: drawable.setColor(Color.WHITE)
-            background = drawable
+                backgroundColor?.let { // set background color
+                    this.setColor(Color.parseColor(it))
+                } ?: this.setColor(Color.WHITE) // set background color default : WHITE
+                background = this
+            }
 
             clipChildren = false
         }
-    }
-
-    private fun setCornerRound(context: Context, attrs: AttributeSet?) {
-        attrs?.let {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout)
-            cornerLeftTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
-            cornerRightTop = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
-            cornerLeftBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
-            cornerRightBottom = typedArray.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
-
-            typedArray.recycle()
-        }
-    }
-
-    private fun dpToFloat(context: Context, value: Float): Float {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, context.resources.displayMetrics)
     }
 
     override fun dispatchDraw(canvas: Canvas) {
@@ -77,11 +63,11 @@ class RoundableLayout : ConstraintLayout {
             path = Path()
         }
 
-        val radii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
-
-        path?.let {
-            it.addRoundRect(RectF(0F,0F,canvas.width.toFloat(), canvas.height.toFloat()), radii, Path.Direction.CW)
-            canvas.clipPath(it)
+        floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom).apply {
+            path?.let {
+                it.addRoundRect(RectF(0F,0F,canvas.width.toFloat(), canvas.height.toFloat()), this, Path.Direction.CW)
+                canvas.clipPath(it)
+            }
         }
         super.dispatchDraw(canvas)
     }
