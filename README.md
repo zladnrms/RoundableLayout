@@ -10,11 +10,11 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 
 ## Preview
 
-<img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />
+<img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.png" width="200px" />
 
-## What's New in _RoundableLayout_ 1.0.3?
+## What's New in _RoundableLayout_ 1.0.4?
 
-- code stablize
+- add stroke and gap
 
 		
 ## Installation
@@ -34,7 +34,7 @@ Add the dependency in your app build.gradle
 ```gradle
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-    implementation 'com.github.zladnrms:RoundableLayout:1.0.3'
+    implementation 'com.github.zladnrms:RoundableLayout:1.0.4'
 }
 
 ```
@@ -54,15 +54,22 @@ dependencies {
     app:cornerLeftTop="40dp"
     app:cornerRightTop="40dp"
     app:cornerLeftBottom="40dp"
-    app:cornerRightBottom="40dp">
+    app:cornerRightBottom="40dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="#222222"
+    app:dashWidth="10dp" // need stroke value 
+    app:dashGap="4dp"> // need stroke value 
 ```
     
-            
 * `cornerLeftTop : Layout's left top round value. (default = 0dp)`
 * `cornerRightTop : Layout's right top round value. (default = 0dp)`
 * `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)`
 * `cornerRightBottom : Layout's right bottom round value. (default = 0dp)`
 * `backgroundColor : Layout's background color value. (default = Color.WHITE)`
+* `dashWidth : Layout outline dash width value. (default = 0dp)`
+* `dashGap : Layout outline dash gap value. (default = 0dp)`
+* `strokeWidth : Layout outline stroke width value. (default = 0dp)`
+* `strokeColor : Layout outline stroke color value. (default = NULL)`
 
 # License
 
