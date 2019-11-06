@@ -14,25 +14,35 @@ import android.util.TypedValue
 class RoundableLayout : ConstraintLayout {
 
     private var path: Path? = null
+
+    // corner radius
     private var cornerLeftTop: Float = 0F
     private var cornerRightTop: Float = 0F
     private var cornerLeftBottom: Float = 0F
     private var cornerRightBottom: Float = 0F
+
+    // background color
     private var backgroundColor: String? = null
 
+    // stroke
+    private var strokeWidth: Int = 0
+    private var strokeColor: String? = null
+    private var dashGap: Float = 0F
+    private var dashWidth: Float = 0F
+
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        setBackgroundWithDrawable(attrs)
+        render(attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        setBackgroundWithDrawable(attrs)
+        render(attrs)
     }
 
     constructor(context: Context) : super(context) {
-        setBackgroundWithDrawable(null)
+        render(null)
     }
 
-    private fun setBackgroundWithDrawable(attrs: AttributeSet?) {
+    private fun render(attrs: AttributeSet?) {
         attrs?.let {
 
             //set corner radii
@@ -42,13 +52,20 @@ class RoundableLayout : ConstraintLayout {
                 cornerLeftBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
                 cornerRightBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
                 backgroundColor = this.getString(R.styleable.RoundableLayout_backgroundColor)
+                strokeWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeWidth,0)
+                strokeColor = this.getString(R.styleable.RoundableLayout_strokeColor)
+                dashWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashWidth,0).toFloat()
+                dashGap = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashGap,0).toFloat()
             }.run {
                 this.recycle()
             }
 
-            //set background
+            //set drawable resource corner & background & stroke
             GradientDrawable().apply {
                 this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
+
+                if(strokeWidth != 0 && strokeColor != null)
+                    this.setStroke(strokeWidth, Color.parseColor(strokeColor), dashWidth, dashGap)
 
                 backgroundColor?.let { // set background color
                     this.setColor(Color.parseColor(it))

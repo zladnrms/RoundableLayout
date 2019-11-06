@@ -6,5 +6,9 @@
         <attr name="cornerLeftBottom" format="dimension"/>
         <attr name="cornerRightBottom" format="dimension"/>
         <attr name="backgroundColor" format="string"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="strokeColor" format="string"/>
+        <attr name="dashWidth" format="dimension"/>
+        <attr name="dashGap" format="dimension"/>
     </declare-styleable>
 </resources>
