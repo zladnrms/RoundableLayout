@@ -22,11 +22,11 @@ class RoundableLayout : ConstraintLayout {
     private var cornerRightBottom: Float = 0F
 
     // background color
-    private var backgroundColor: String? = null
+    private var backgroundColor: Int? = null
 
     // stroke
     private var strokeWidth: Int = 0
-    private var strokeColor: String? = null
+    private var strokeColor: Int? = null
     private var dashGap: Float = 0F
     private var dashWidth: Float = 0F
 
@@ -51,9 +51,9 @@ class RoundableLayout : ConstraintLayout {
                 cornerRightTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
                 cornerLeftBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
                 cornerRightBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
-                backgroundColor = this.getString(R.styleable.RoundableLayout_backgroundColor)
+                backgroundColor = this.getColor(R.styleable.RoundableLayout_backgroundColor, Color.WHITE)
                 strokeWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth,0)
-                strokeColor = this.getString(R.styleable.RoundableLayout_strokeLineColor)
+                strokeColor = this.getColor(R.styleable.RoundableLayout_strokeLineColor, Color.BLACK)
                 dashWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth,0).toFloat()
                 dashGap = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineGap,0).toFloat()
             }.run {
@@ -65,10 +65,10 @@ class RoundableLayout : ConstraintLayout {
                 this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
 
                 if(strokeWidth != 0 && strokeColor != null)
-                    this.setStroke(strokeWidth, Color.parseColor(strokeColor), dashWidth, dashGap)
+                    this.setStroke(strokeWidth, strokeColor!!, dashWidth, dashGap)
 
                 backgroundColor?.let { // set background color
-                    this.setColor(Color.parseColor(it))
+                    this.setColor(it)
                 } ?: this.setColor(Color.WHITE) // set background color default : WHITE
                 background = this
             }
