@@ -12,10 +12,9 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 
 <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
 
-## What's New in _RoundableLayout_ 1.0.4?
+## What's New in _RoundableLayout_ 1.0.5?
 
-- add stroke and gap
-
+- stroke duplicated error fixed
 		
 ## Installation
 
@@ -34,7 +33,7 @@ Add the dependency in your app build.gradle
 ```gradle
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-    implementation 'com.github.zladnrms:RoundableLayout:1.0.4'
+    implementation 'com.github.zladnrms:RoundableLayout:1.0.5'
 }
 
 ```
@@ -55,10 +54,10 @@ dependencies {
     app:cornerRightTop="40dp"
     app:cornerLeftBottom="40dp"
     app:cornerRightBottom="40dp"
-    app:strokeWidth="2dp"
-    app:strokeColor="#222222"
-    app:dashWidth="10dp" // need stroke value 
-    app:dashGap="4dp"> // need stroke value 
+    app:strokeLineWidth="2dp"
+    app:strokeLineColor="#222222"
+    app:dashLineWidth="10dp" // need stroke value 
+    app:dashLineGap="4dp"> // need stroke value 
 ```
     
 * `cornerLeftTop : Layout's left top round value. (default = 0dp)`
@@ -66,10 +65,10 @@ dependencies {
 * `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)`
 * `cornerRightBottom : Layout's right bottom round value. (default = 0dp)`
 * `backgroundColor : Layout's background color value. (default = Color.WHITE)`
-* `dashWidth : Layout outline dash width value. (default = 0dp)`
-* `dashGap : Layout outline dash gap value. (default = 0dp)`
-* `strokeWidth : Layout outline stroke width value. (default = 0dp)`
-* `strokeColor : Layout outline stroke color value. (default = NULL)`
+* `dashLineWidth : Layout outline dash width value. (default = 0dp)`
+* `dashLineGap : Layout outline dash gap value. (default = 0dp)`
+* `strokeLineWidth : Layout outline stroke width value. (default = 0dp)`
+* `strokeLineColor : Layout outline stroke color value. (default = NULL)`
 
 # License
 
