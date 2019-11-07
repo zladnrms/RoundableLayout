@@ -52,10 +52,10 @@ class RoundableLayout : ConstraintLayout {
                 cornerLeftBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
                 cornerRightBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom,0).toFloat()
                 backgroundColor = this.getString(R.styleable.RoundableLayout_backgroundColor)
-                strokeWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeWidth,0)
-                strokeColor = this.getString(R.styleable.RoundableLayout_strokeColor)
-                dashWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashWidth,0).toFloat()
-                dashGap = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashGap,0).toFloat()
+                strokeWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth,0)
+                strokeColor = this.getString(R.styleable.RoundableLayout_strokeLineColor)
+                dashWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth,0).toFloat()
+                dashGap = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineGap,0).toFloat()
             }.run {
                 this.recycle()
             }

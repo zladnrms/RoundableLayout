@@ -19,10 +19,10 @@
             app:cornerLeftTop="30dp"
             app:cornerRightBottom="30dp"
             app:cornerRightTop="30dp"
-            app:dashGap="5dp"
-            app:dashWidth="10dp"
-            app:strokeColor="#0054FF"
-            app:strokeWidth="1dp">
+            app:dashLineGap="5dp"
+            app:dashLineWidth="10dp"
+            app:strokeLineColor="#0054FF"
+            app:strokeLineWidth="1dp">
 
         <TextView
                 android:layout_width="0dp"
@@ -50,10 +50,10 @@
             app:cornerLeftTop="45dp"
             app:cornerRightBottom="60dp"
             app:cornerRightTop="100dp"
-            app:dashGap="4dp"
-            app:dashWidth="12dp"
-            app:strokeColor="#D941C5"
-            app:strokeWidth="3dp"
+            app:dashLineGap="4dp"
+            app:dashLineWidth="12dp"
+            app:strokeLineColor="#D941C5"
+            app:strokeLineWidth="3dp"
             android:layout_marginTop="50dp">
 
         <TextView
