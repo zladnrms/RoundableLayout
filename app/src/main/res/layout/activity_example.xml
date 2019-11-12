@@ -126,4 +126,35 @@
 
     </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 
+    <com.tistory.zladnrms.roundablelayout.RoundableMotionLayout
+            android:id="@+id/layout_example5"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:elevation="3dp"
+            android:translationZ="3dp"
+            tools:showPaths="true"
+            app:mlBackgroundColor="#e2e2e2"
+            app:layoutDescription="@xml/motion_action_0"
+            app:mlCornerLeftBottom="45dp"
+            app:mlCornerLeftTop="45dp"
+            app:mlCornerRightBottom="45dp"
+            app:mlCornerRightTop="45dp">
+
+        <com.tistory.zladnrms.roundablelayout.RoundableLayout
+                android:id="@+id/layout_example_2"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:elevation="3dp"
+                android:translationZ="3dp"
+                app:cornerLeftBottom="20dp"
+                app:cornerLeftTop="20dp"
+                app:cornerRightBottom="20dp"
+                app:cornerRightTop="20dp">
+
+        </com.tistory.zladnrms.roundablelayout.RoundableLayout>
+
+    </com.tistory.zladnrms.roundablelayout.RoundableMotionLayout>
+
 </LinearLayout>
