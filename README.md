@@ -11,7 +11,11 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 
 ## Preview
 
-<img src="./example_motion.gif" width="200px" /> <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
+#### activate in MotionLayout
+<img src="./example_motion.gif" width="200px" />
+
+#### Varius Customize
+<img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
 
 ## What's New in _RoundableLayout_ 1.0.9?
 
