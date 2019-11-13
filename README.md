@@ -5,16 +5,17 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 - Support AndroidX
 - Support round corner (clip children view default)
 - Support background color 
+- Support MotionLayout
 - Implemented ConstraintLayout 
 
 
 ## Preview
 
-<img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
+<img src="./example_motion.gif" width="200px" /> <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
 
-## What's New in _RoundableLayout_ 1.0.6?
+## What's New in _RoundableLayout_ 1.0.9?
 
-- error fixed
+- activate in MotionLayout
 		
 ## Installation
 
@@ -33,7 +34,8 @@ Add the dependency in your app build.gradle
 ```gradle
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
-    implementation 'com.github.zladnrms:RoundableLayout:1.0.6'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1 or high' // if you want to use motion layout
+    implementation 'com.github.zladnrms:RoundableLayout:1.0.9'
 }
 
 ```
@@ -56,6 +58,8 @@ dependencies {
     app:cornerRightBottom="40dp"
     app:strokeLineWidth="2dp"
     app:strokeLineColor="#222222"
+    app:cornerLeftSide="25dp"
+    app:cornerRightSide="25dp"
     app:dashLineWidth="10dp" // need stroke value 
     app:dashLineGap="4dp"> // need stroke value 
 ```
@@ -69,6 +73,13 @@ dependencies {
 * `dashLineGap : Layout outline dash gap value. (default = 0dp)`
 * `strokeLineWidth : Layout outline stroke width value. (default = 0dp)`
 * `strokeLineColor : Layout outline stroke color value. (default = NULL)`
+
+if greater than zero. side top and bottom corner value same this value.
+* `cornerLeftSide : Layout's left side round value.  (default = 0dp)`
+* `cornerRightSide : Layout's left side round value. (default = 0dp)`
+
+the Side option is made in consideration of the custom attribute of motion layout.
+because Constraint only has maximum two custom attribute. (now 2.0.0-beta2)
 
 # License
 
