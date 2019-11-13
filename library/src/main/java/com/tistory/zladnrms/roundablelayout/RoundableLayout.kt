@@ -15,16 +15,16 @@ class RoundableLayout : ConstraintLayout {
 
     private var path: Path? = null
 
-    // corner radius
+    /** corner radius */
     private var cornerLeftTop: Float = 0F
     private var cornerRightTop: Float = 0F
     private var cornerLeftBottom: Float = 0F
     private var cornerRightBottom: Float = 0F
 
-    // background color
+    /** background color */
     private var backgroundColor: Int? = null
 
-    // stroke
+    /** stroke */
     private var strokeWidth: Int = 0
     private var strokeColor: Int? = null
     private var dashGap: Float = 0F
@@ -45,8 +45,8 @@ class RoundableLayout : ConstraintLayout {
     private fun render(attrs: AttributeSet?) {
         attrs?.let {
 
-            //set corner radii
-            context.obtainStyledAttributes(attrs, R.styleable.RoundableLayout).apply {
+            /** set corner radii */
+            context.obtainStyledAttributes(it, R.styleable.RoundableLayout).apply {
                 cornerLeftTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop,0).toFloat()
                 cornerRightTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop,0).toFloat()
                 cornerLeftBottom = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom,0).toFloat()
@@ -60,16 +60,16 @@ class RoundableLayout : ConstraintLayout {
                 this.recycle()
             }
 
-            //set drawable resource corner & background & stroke
+            /** set drawable resource corner & background & stroke */
             GradientDrawable().apply {
                 this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
 
                 if(strokeWidth != 0 && strokeColor != null)
                     this.setStroke(strokeWidth, strokeColor!!, dashWidth, dashGap)
 
-                backgroundColor?.let { // set background color
+                backgroundColor?.let { /** set background color */
                     this.setColor(it)
-                } ?: this.setColor(Color.WHITE) // set background color default : WHITE
+                } ?: this.setColor(Color.WHITE) /** set background color default : WHITE */
                 background = this
             }
 

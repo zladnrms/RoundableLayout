@@ -1,2 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.tistory.zladnrms.roundablelayout"/>
+        package="com.tistory.zladnrms.roundablelayout">
+
+    <application>
+        <meta-data
+                android:name="com.google.android.actions"
+                android:resource="@xml/example_motion" />
+    </application>
+
+</manifest>
