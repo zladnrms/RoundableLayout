@@ -1,129 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="100dp"
-        android:orientation="vertical">
+        app:layoutDescription="@xml/motion_action_0">
 
     <com.tistory.zladnrms.roundablelayout.RoundableLayout
-            android:id="@+id/layout_example"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:id="@+id/layout_example_motion"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
-            android:elevation="6dp"
-            android:translationZ="2dp"
-            app:backgroundColor="#FFFFFF"
-            app:cornerLeftBottom="60dp"
-            app:cornerLeftTop="30dp"
-            app:cornerRightBottom="30dp"
-            app:cornerRightTop="30dp"
-            app:dashLineGap="5dp"
-            app:dashLineWidth="10dp"
-            app:strokeLineColor="#0054FF"
-            app:strokeLineWidth="1dp">
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginLeft="30dp"
-                android:text="Example 1"
-                android:textColor="#222222"
-                android:gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="45dp"
+            android:elevation="20dp"
+            android:translationZ="20dp"
+            app:backgroundColor="#4374D9"
+            app:motionOn="true">
 
     </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 
-    <com.tistory.zladnrms.roundablelayout.RoundableLayout
-            android:id="@+id/layout_example2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:elevation="6dp"
-            android:translationZ="2dp"
-            app:backgroundColor="#FAF4C0"
-            app:cornerLeftBottom="60dp"
-            app:cornerLeftTop="45dp"
-            app:cornerRightBottom="60dp"
-            app:cornerRightTop="100dp"
-            app:dashLineGap="4dp"
-            app:dashLineWidth="12dp"
-            app:strokeLineColor="#D941C5"
-            app:strokeLineWidth="3dp"
-            android:layout_marginTop="50dp">
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginLeft="30dp"
-                android:text="Example 2"
-                android:textColor="#222222"
-                android:gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
-
-    <com.tistory.zladnrms.roundablelayout.RoundableLayout
-            android:id="@+id/layout_example3"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:elevation="6dp"
-            android:translationZ="2dp"
-            app:backgroundColor="#FFFFFF"
-            app:cornerLeftBottom="40dp"
-            app:cornerLeftTop="40dp"
-            app:cornerRightBottom="40dp"
-            app:cornerRightTop="40dp"
-            android:layout_marginTop="50dp">
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginLeft="30dp"
-                android:text="Example 3"
-                android:textColor="#222222"
-                android:gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
-
-    <com.tistory.zladnrms.roundablelayout.RoundableLayout
-            android:id="@+id/layout_example4"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:elevation="6dp"
-            android:translationZ="2dp"
-            app:backgroundColor="#FFFFFF"
-            app:cornerLeftBottom="45dp"
-            app:cornerLeftTop="45dp"
-            app:cornerRightBottom="45dp"
-            app:cornerRightTop="45dp"
-            android:layout_marginTop="45dp">
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="Example 4"
-                android:textSize="11dp"
-                android:textColor="#222222"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

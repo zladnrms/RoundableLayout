@@ -5,23 +5,29 @@
     <Transition
             motion:constraintSetEnd="@+id/end"
             motion:constraintSetStart="@+id/start"
-            motion:duration="1000">
+            motion:duration="3000">
         <OnSwipe
-                motion:touchAnchorId="@id/layout_example_2"
-                motion:touchAnchorSide="top"
-                motion:dragDirection="dragUp" />
+                motion:touchAnchorId="@id/layout_example_motion"
+                motion:touchAnchorSide="right"
+                motion:dragDirection="dragRight"
+                motion:onTouchUp="stop"/>
     </Transition>
 
-
     <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@id/layout_example_2"
+        <Constraint android:id="@id/layout_example_motion"
                 android:layout_width="0dp"
-                android:layout_height="64dp"
+                android:layout_height="70dp"
+                motion:layout_constraintWidth_percent="0.30"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent"
-                motion:layout_constraintWidth_percent="0.70"
                 motion:layout_constraintEnd_toEndOf="parent" >
+            <CustomAttribute
+                    motion:attributeName="cornerLeftSide"
+                    motion:customDimension="45dp"/>
+            <CustomAttribute
+                    motion:attributeName="cornerRightSide"
+                    motion:customDimension="45dp"/>
         </Constraint>
     </ConstraintSet>
 
@@ -29,13 +35,19 @@
             android:id="@+id/end"
             motion:deriveConstraintsFrom="@id/start">
 
-        <Constraint android:id="@id/layout_example_2"
+        <Constraint android:id="@id/layout_example_motion"
                 android:layout_width="0dp"
-                android:layout_height="64dp"
+                android:layout_height="70dp"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="cornerLeftSide"
+                motion:customDimension="1dp"/>
+            <CustomAttribute
+                    motion:attributeName="cornerRightSide"
+                    motion:customDimension="1dp"/>
         </Constraint>
     </ConstraintSet>
 
