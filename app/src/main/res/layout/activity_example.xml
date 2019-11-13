@@ -13,8 +13,7 @@
             android:layout_marginTop="45dp"
             android:elevation="20dp"
             android:translationZ="20dp"
-            app:backgroundColor="#4374D9"
-            app:motionOn="true">
+            app:backgroundColor="#4374D9">
 
     </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 

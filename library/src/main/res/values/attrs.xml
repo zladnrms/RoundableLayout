@@ -11,8 +11,6 @@
         <attr name="dashLineWidth" format="dimension"/>
         <attr name="dashLineGap" format="dimension"/>
 
-        <!-- For Motion Layout Only Max Custom Attribute -->
-        <attr name="motionOn" format="boolean"/>
         <attr name="cornerLeftSide" format="dimension"/>
         <attr name="cornerRightSide" format="dimension"/>
     </declare-styleable>

@@ -24,16 +24,13 @@ class RoundableLayout : ConstraintLayout {
 
     private var path: Path? = null
 
-    /** is this layout used by MotionScene? */
-    private var motionOn: Boolean = false
-
     /** corner radius */
     private var cornerLeftTop: Float = 0F
     private var cornerRightTop: Float = 0F
     private var cornerLeftBottom: Float = 0F
     private var cornerRightBottom: Float = 0F
 
-    /** corner radius used only motionOn true */
+    /** side opt is top and bottom */
     private var cornerLeftSide: Float = 0F
     private var cornerRightSide: Float = 0F
 
@@ -46,7 +43,11 @@ class RoundableLayout : ConstraintLayout {
     private var dashGap: Float = 0F
     private var dashWidth: Float = 0F
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         render(attrs)
     }
 
@@ -72,39 +73,29 @@ class RoundableLayout : ConstraintLayout {
                 strokeColor = this.getColor(R.styleable.RoundableLayout_strokeLineColor, Color.BLACK)
                 dashWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth, 0).toFloat()
                 dashGap = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineGap, 0).toFloat()
-
-                /** for used motionOn true only */
-                motionOn = this.getBoolean(R.styleable.RoundableLayout_motionOn, false)
                 cornerLeftSide = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftSide, 0).toFloat()
                 cornerRightSide = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightSide, 0).toFloat()
             }.run {
                 this.recycle()
             }
+        }
+    }
 
-            /** set drawable resource corner & background & stroke */
-            GradientDrawable().apply {
-                if(motionOn) {
-                    this.cornerRadii = floatArrayOf(cornerLeftSide, cornerLeftSide, cornerRightSide, cornerRightSide,
-                        cornerRightSide, cornerRightSide, cornerLeftSide, cornerLeftSide
-                    )
-                } else {
-                    this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
-                        cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
-                    )
-                }
+    /**
+     * if left side value existed,
+     * leftTop and leftBottom value is equal to leftSide value.
+     * this is made in consideration of the custom attribute of motion layout.
+     * because Constraint only has maximum two custom attribute. (2.0.0-beta2)
+     */
+    private fun checkSideValue() {
+        if (cornerLeftSide != 0F) {
+            cornerLeftTop = cornerLeftSide
+            cornerLeftBottom = cornerLeftSide
+        }
 
-                if (strokeWidth != 0 && strokeColor != null)
-                    this.setStroke(strokeWidth, strokeColor!!, dashWidth, dashGap)
-
-                backgroundColor?.let {
-                    /** set background color */
-                    this.setColor(it)
-                } ?: this.setColor(Color.WHITE)
-                /** set background color default : WHITE */
-                background = this
-            }
-
-            clipChildren = false
+        if (cornerRightSide != 0F) {
+            cornerRightTop = cornerRightSide
+            cornerRightBottom = cornerRightSide
         }
     }
 
@@ -146,30 +137,21 @@ class RoundableLayout : ConstraintLayout {
             path = Path()
         }
 
-        if(motionOn) {
-            floatArrayOf(cornerLeftSide, cornerLeftSide, cornerRightSide, cornerRightSide, cornerRightSide,
-                cornerRightSide, cornerLeftSide, cornerLeftSide
-            ).apply {
-                clipPathCanvas(canvas, this)
-            }
-        } else {
-            floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
-                cornerRightBottom, cornerLeftBottom, cornerLeftBottom
-            ).apply {
-                clipPathCanvas(canvas, this)
-            }
-        }
+        checkSideValue()
 
+        floatArrayOf(
+            cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
+            cornerRightBottom, cornerLeftBottom, cornerLeftBottom
+        ).apply {
+            clipPathCanvas(canvas, this)
+        }
 
         /** set drawable resource corner & background & stroke */
         GradientDrawable().apply {
-            if(motionOn) {
-                this.cornerRadii = floatArrayOf(cornerLeftSide, cornerLeftSide, cornerRightSide, cornerRightSide,
-                    cornerRightSide, cornerRightSide, cornerLeftSide, cornerLeftSide)
-            } else {
-                this.cornerRadii = floatArrayOf(cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
-                    cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom)
-            }
+            this.cornerRadii = floatArrayOf(
+                cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
+                cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
+            )
 
             if (strokeWidth != 0 && strokeColor != null)
                 this.setStroke(strokeWidth, strokeColor!!, dashWidth, dashGap)
@@ -184,17 +166,22 @@ class RoundableLayout : ConstraintLayout {
 
         outlineProvider = getOutlineProvider()
 
+        clipChildren = false
+
         super.dispatchDraw(canvas)
     }
 
     private fun clipPathCanvas(canvas: Canvas, floatArray: FloatArray) {
         path?.let {
             it.addRoundRect(
-                RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()), floatArray, Path.Direction.CW
+                RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()),
+                floatArray,
+                Path.Direction.CW
             )
             canvas.clipPath(it)
         }
     }
+
     /** For not showing red underline */
     override fun setOutlineProvider(provider: ViewOutlineProvider?) {
         super.setOutlineProvider(provider)
