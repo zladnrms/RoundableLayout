@@ -3,9 +3,6 @@
         package="com.tistory.zladnrms.roundablelayout">
 
     <application>
-        <meta-data
-                android:name="com.google.android.actions"
-                android:resource="@xml/example_motion" />
     </application>
 
 </manifest>

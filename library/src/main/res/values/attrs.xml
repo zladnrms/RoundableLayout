@@ -11,15 +11,4 @@
         <attr name="dashLineWidth" format="dimension"/>
         <attr name="dashLineGap" format="dimension"/>
     </declare-styleable>
-    <declare-styleable name="RoundableMotionLayout">
-        <attr name="mlCornerLeftTop" format="dimension"/>
-        <attr name="mlCornerRightTop" format="dimension"/>
-        <attr name="mlCornerLeftBottom" format="dimension"/>
-        <attr name="mlCornerRightBottom" format="dimension"/>
-        <attr name="mlBackgroundColor" format="color"/>
-        <attr name="mlStrokeLineWidth" format="dimension"/>
-        <attr name="mlStrokeLineColor" format="color"/>
-        <attr name="mlDashLineWidth" format="dimension"/>
-        <attr name="mlDashLineGap" format="dimension"/>
-    </declare-styleable>
 </resources>

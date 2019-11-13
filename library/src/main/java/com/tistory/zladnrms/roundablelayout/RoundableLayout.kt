@@ -16,19 +16,19 @@ class RoundableLayout : ConstraintLayout {
     private var path: Path? = null
 
     /** corner radius */
-    private var cornerLeftTop: Float = 0F
-    private var cornerRightTop: Float = 0F
-    private var cornerLeftBottom: Float = 0F
-    private var cornerRightBottom: Float = 0F
+    var cornerLeftTop: Float = 0F
+    var cornerRightTop: Float = 0F
+    var cornerLeftBottom: Float = 0F
+    var cornerRightBottom: Float = 0F
 
     /** background color */
-    private var backgroundColor: Int? = null
+    var backgroundColor: Int? = null
 
     /** stroke */
-    private var strokeWidth: Int = 0
-    private var strokeColor: Int? = null
-    private var dashGap: Float = 0F
-    private var dashWidth: Float = 0F
+    var strokeWidth: Int = 0
+    var strokeColor: Int? = null
+    var dashGap: Float = 0F
+    var dashWidth: Float = 0F
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         render(attrs)
