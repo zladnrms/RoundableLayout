@@ -16,19 +16,19 @@ class RoundableLayout : ConstraintLayout {
     private var path: Path? = null
 
     /** corner radius */
-    var cornerLeftTop: Float = 0F
-    var cornerRightTop: Float = 0F
-    var cornerLeftBottom: Float = 0F
-    var cornerRightBottom: Float = 0F
+    private var cornerLeftTop: Float = 0F
+    private var cornerRightTop: Float = 0F
+    private var cornerLeftBottom: Float = 0F
+    private var cornerRightBottom: Float = 0F
 
     /** background color */
-    var backgroundColor: Int? = null
+    private var backgroundColor: Int? = null
 
     /** stroke */
-    var strokeWidth: Int = 0
-    var strokeColor: Int? = null
-    var dashGap: Float = 0F
-    var dashWidth: Float = 0F
+    private var strokeWidth: Int = 0
+    private var strokeColor: Int? = null
+    private var dashGap: Float = 0F
+    private var dashWidth: Float = 0F
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         render(attrs)
@@ -75,6 +75,26 @@ class RoundableLayout : ConstraintLayout {
 
             clipChildren = false
         }
+    }
+
+    fun setCornerLeftTop(value: Float) {
+        cornerLeftTop = value
+        postInvalidate()
+    }
+
+    fun setCornerLeftBottom(value: Float) {
+        cornerLeftBottom = value
+        postInvalidate()
+    }
+
+    fun setCornerRightTop(value: Float) {
+        cornerRightTop = value
+        postInvalidate()
+    }
+
+    fun setCornerRightBottom(value: Float) {
+        cornerRightBottom = value
+        postInvalidate()
     }
 
     override fun dispatchDraw(canvas: Canvas) {
