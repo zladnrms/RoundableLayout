@@ -9,7 +9,7 @@ import com.defy.example.roundablelayout.databinding.ActivityExampleBinding
 
 class ExampleActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityExampleBinding
+    private lateinit var binding: ActivityExampleBinding
     private lateinit var articleViewModel: ExampleViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +21,5 @@ class ExampleActivity : AppCompatActivity() {
         )
         binding.viewModel = articleViewModel
         binding.lifecycleOwner = this
-
     }
 }

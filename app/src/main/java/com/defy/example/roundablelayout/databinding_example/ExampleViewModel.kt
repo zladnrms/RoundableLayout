@@ -3,7 +3,7 @@ package com.defy.example.roundablelayout.databinding_example
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 
-class ExampleViewModel: ViewModel() {
+class ExampleViewModel : ViewModel() {
 
     /** MVVM + Databinding Example */
 
