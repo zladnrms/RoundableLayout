@@ -15,6 +15,7 @@ import android.util.TypedValue
 import android.view.ViewOutlineProvider
 import android.widget.Toast
 import android.graphics.Outline
+import android.graphics.drawable.RippleDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
 import java.lang.Exception
@@ -129,6 +130,35 @@ class RoundableLayout : ConstraintLayout {
         postInvalidate()
     }
 
+    fun setStrokeLineWidth(value: Int) {
+        strokeWidth = value
+        postInvalidate()
+    }
+
+
+    fun setStrokeLineColor(value: Int) {
+        strokeColor = value
+        postInvalidate()
+    }
+
+    fun setDashLineWidth(value: Float) {
+        dashWidth = value
+        postInvalidate()
+    }
+
+    fun setDashLineGap(value: Float) {
+        dashGap = value
+        postInvalidate()
+    }
+
+    fun setBackgroundColor(value: String) {
+        try {
+            backgroundColor = Color.parseColor(value)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     override fun dispatchDraw(canvas: Canvas) {
         /** for outline remake whenenver draw */
         path = null
@@ -160,9 +190,11 @@ class RoundableLayout : ConstraintLayout {
                 /** set background color */
                 this.setColor(it)
             } ?: this.setColor(Color.WHITE)
+
             /** set background color default : WHITE */
             background = this
         }
+
 
         outlineProvider = getOutlineProvider()
 
