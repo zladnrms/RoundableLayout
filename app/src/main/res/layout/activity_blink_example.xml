@@ -9,11 +9,10 @@
                 type="com.defy.example.roundablelayout.databinding_example.ExampleViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            app:layoutDescription="@xml/motion_action_0">
 
         <com.tistory.zladnrms.roundablelayout.RoundableLayout
                 android:id="@+id/layout_example_motion"
@@ -21,12 +20,10 @@
                 android:layout_height="70dp"
                 android:elevation="5dp"
                 android:translationZ="5dp"
-                android:onClick="@{() -> viewModel.toBlack(true)}"
-                app:backgroundColor="@{viewModel.blackOn ? @color/colorBlackPrimary : @color/colorWhitePrimary}"
                 app:cornerLeftSide="25dp"
                 app:cornerRightSide="25dp">
 
         </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

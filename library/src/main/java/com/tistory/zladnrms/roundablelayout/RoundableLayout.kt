@@ -151,12 +151,9 @@ class RoundableLayout : ConstraintLayout {
         postInvalidate()
     }
 
-    fun setBackgroundColor(value: String) {
-        try {
-            backgroundColor = Color.parseColor(value)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+    override fun setBackgroundColor(value: Int) {
+        backgroundColor = value
+        postInvalidate()
     }
 
     override fun dispatchDraw(canvas: Canvas) {
@@ -190,6 +187,8 @@ class RoundableLayout : ConstraintLayout {
                 /** set background color */
                 this.setColor(it)
             } ?: this.setColor(Color.WHITE)
+
+            Log.d("호호코스트2222222", "$backgroundColor")
 
             /** set background color default : WHITE */
             background = this

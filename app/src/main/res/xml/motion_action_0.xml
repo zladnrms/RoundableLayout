@@ -9,15 +9,27 @@
         <OnSwipe
                 motion:dragDirection="dragRight"
                 motion:onTouchUp="stop"
-                motion:touchAnchorId="@id/layout_example_motion"
+                motion:touchAnchorId="@id/layout_expand_motion"
+                motion:touchAnchorSide="right" />
+    </Transition>
+
+    <Transition
+            motion:constraintSetEnd="@+id/end"
+            motion:constraintSetStart="@+id/start"
+            motion:duration="3000">
+        <OnSwipe
+                motion:dragDirection="dragRight"
+                motion:onTouchUp="stop"
+                motion:touchAnchorId="@id/layout_blink_motion"
                 motion:touchAnchorSide="right" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
+        <!-- Expand -->
         <Constraint
-                android:id="@id/layout_example_motion"
+                android:id="@id/layout_expand_motion"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
@@ -25,10 +37,26 @@
                 motion:layout_constraintWidth_percent="0.30">
             <CustomAttribute
                     motion:attributeName="cornerLeftSide"
-                    motion:customDimension="45dp" />
+                    motion:customDimension="50dp" />
             <CustomAttribute
-                    motion:attributeName="cornerRightTop"
-                    motion:customDimension="45dp" />
+                    motion:attributeName="cornerRightSide"
+                    motion:customDimension="50dp" />
+        </Constraint>
+
+        <!-- Stroke & Dash -->
+        <Constraint
+                android:id="@id/layout_blink_motion"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                motion:layout_constraintLeft_toLeftOf="parent"
+                motion:layout_constraintRight_toRightOf="parent"
+                motion:layout_constraintTop_toBottomOf="@id/layout_expand_motion">
+            <CustomAttribute
+                    motion:attributeName="dashLineWidth"
+                    motion:customDimension="10dp" />
+            <CustomAttribute
+                    motion:attributeName="dashLineGap"
+                    motion:customDimension="10dp" />
         </Constraint>
     </ConstraintSet>
 
@@ -36,20 +64,39 @@
             android:id="@+id/end"
             motion:deriveConstraintsFrom="@id/start">
 
+        <!-- Expand -->
         <Constraint
-                android:id="@id/layout_example_motion"
+                android:id="@id/layout_expand_motion"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
                     motion:attributeName="cornerLeftSide"
-                    motion:customDimension="1dp" />
+                    motion:customDimension="0dp" />
             <CustomAttribute
-                    motion:attributeName="cornerRightTop"
-                    motion:customDimension="1dp" />
+                    motion:attributeName="cornerRightSide"
+                    motion:customDimension="0dp" />
+        </Constraint>
+
+        <!-- Stroke & Dash -->
+        <Constraint
+                android:id="@id/layout_blink_motion"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                motion:layout_constraintLeft_toLeftOf="parent"
+                motion:layout_constraintRight_toRightOf="parent"
+                motion:layout_constraintTop_toBottomOf="@id/layout_expand_motion">
+            <CustomAttribute
+                    motion:attributeName="dashLineWidth"
+                    motion:customDimension="30dp" />
+            <CustomAttribute
+                    motion:attributeName="dashLineGap"
+                    motion:customDimension="30dp" />
         </Constraint>
     </ConstraintSet>
 

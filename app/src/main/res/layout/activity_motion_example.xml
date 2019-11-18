@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.defy.example.roundablelayout.databinding_example.ExampleViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutDescription="@xml/motion_action_0">
+
+        <com.tistory.zladnrms.roundablelayout.RoundableLayout
+                android:id="@+id/layout_expand_motion"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:backgroundColor="#5586EB"/>
+
+        <com.tistory.zladnrms.roundablelayout.RoundableLayout
+                android:id="@+id/layout_blink_motion"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:strokeLineColor="#F15F5F"
+                app:strokeLineWidth="4dp"
+                app:cornerLeftSide="30dp"
+                app:cornerRightSide="30dp"/>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>
