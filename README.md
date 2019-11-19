@@ -89,13 +89,13 @@ because Constraint only has maximum two custom attribute. (now 2.0.0-beta2)
 
 ### Use example
 
-[with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_example.xml)
+[with dataBinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_example.xml)
 
 <img src="./blink_motion.gif" width="200px" />
     
 #### This example changes the background when a layout is clicked within MVVM Databinding.
 
-[with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_motion_example.xml)
+[with MotionLayout](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_motion_example.xml)
 
 <img src="./example_motion.gif" width="200px" />
 
