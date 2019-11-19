@@ -68,7 +68,7 @@ dependencies {
     app:dashLineWidth="10dp" // need stroke value 
     app:dashLineGap="4dp"> // need stroke value 
 ```
-    
+
 * `cornerLeftTop : Layout's left top round value. (default = 0dp)`
 * `cornerRightTop : Layout's right top round value. (default = 0dp)`
 * `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)`
@@ -85,6 +85,18 @@ if greater than zero. side top and bottom corner value same this value.
 
 the Side option is made in consideration of the custom attribute of motion layout.
 because Constraint only has maximum two custom attribute. (now 2.0.0-beta2)
+
+### Use example
+
+[with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_example.xml)
+<img src="./blink_motion.gif" width="200px" />
+    
+#### This example changes the background when a layout is clicked within MVVM Databinding.
+
+[with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_motion_example.xml)
+<img src="./example_motion.gif" width="200px" />
+
+#### This example shows the use of animation through motionscene within motion layout.
 
 # License
 
