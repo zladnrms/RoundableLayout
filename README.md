@@ -2,12 +2,12 @@
  
 When you implement a round corner layout, RoundableLayout is the best choice.
 
+- Implemented ConstraintLayout 
 - Support AndroidX
 - Support round corner (clip children view default)
 - Support background color 
-- Support MotionLayout
-- Implemented ConstraintLayout 
-
+- Support within MotionLayout
+- Support within databinding
 
 ## Preview
 
