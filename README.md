@@ -11,7 +11,7 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 
 ## Preview
 
-#### activate in MotionLayout
+#### within MotionLayout
 <img src="./example_motion.gif" width="200px" />
 
 #### Varius Customize
@@ -47,7 +47,8 @@ dependencies {
     
 ## How to use
 
-#### in .xml
+### in .xml
+#### The following attributes are optional.
 
 ```xml
    <com.tistory.zladnrms.roundablelayout.RoundableLayout
@@ -89,11 +90,13 @@ because Constraint only has maximum two custom attribute. (now 2.0.0-beta2)
 ### Use example
 
 [with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_example.xml)
+
 <img src="./blink_motion.gif" width="200px" />
     
 #### This example changes the background when a layout is clicked within MVVM Databinding.
 
 [with databinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_motion_example.xml)
+
 <img src="./example_motion.gif" width="200px" />
 
 #### This example shows the use of animation through motionscene within motion layout.
