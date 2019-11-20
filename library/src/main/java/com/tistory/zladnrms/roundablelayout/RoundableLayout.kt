@@ -9,14 +9,9 @@ import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import androidx.constraintlayout.widget.ConstraintLayout
-import android.util.TypedValue
 import android.view.ViewOutlineProvider
-import android.widget.Toast
 import android.graphics.Outline
-import android.graphics.drawable.RippleDrawable
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
 import java.lang.Exception
 
@@ -187,8 +182,6 @@ class RoundableLayout : ConstraintLayout {
                 /** set background color */
                 this.setColor(it)
             } ?: this.setColor(Color.WHITE)
-
-            Log.d("호호코스트2222222", "$backgroundColor")
 
             /** set background color default : WHITE */
             background = this
