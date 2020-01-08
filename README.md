@@ -2,24 +2,24 @@
  
 When you implement a round corner layout, RoundableLayout is the best choice.
 
+- Implemented ConstraintLayout 
 - Support AndroidX
 - Support round corner (clip children view default)
 - Support background color 
-- Support MotionLayout
-- Implemented ConstraintLayout 
-
+- Support within MotionLayout
+- Support within databinding
 
 ## Preview
 
-#### activate in MotionLayout
+#### within MotionLayout
 <img src="./example_motion.gif" width="200px" />
 
 #### Varius Customize
 <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
 
-## What's New in _RoundableLayout_ 1.0.9?
+## What's New in _RoundableLayout_ 1.1.2?
 
-- activate in MotionLayout
+- error fixed
 		
 ## Installation
 
@@ -39,14 +39,15 @@ Add the dependency in your app build.gradle
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1 or high' // if you want to use motion layout
-    implementation 'com.github.zladnrms:RoundableLayout:1.0.9'
+    implementation 'com.github.zladnrms:RoundableLayout:1.1.2'
 }
 
 ```
     
 ## How to use
 
-#### in .xml
+### in .xml
+#### The following attributes are optional.
 
 ```xml
    <com.tistory.zladnrms.roundablelayout.RoundableLayout
@@ -67,7 +68,7 @@ dependencies {
     app:dashLineWidth="10dp" // need stroke value 
     app:dashLineGap="4dp"> // need stroke value 
 ```
-    
+
 * `cornerLeftTop : Layout's left top round value. (default = 0dp)`
 * `cornerRightTop : Layout's right top round value. (default = 0dp)`
 * `cornerLeftBottom : Layout's left bottom round value. (default = 0dp)`
@@ -84,6 +85,20 @@ if greater than zero. side top and bottom corner value same this value.
 
 the Side option is made in consideration of the custom attribute of motion layout.
 because Constraint only has maximum two custom attribute. (now 2.0.0-beta2)
+
+### Use example
+
+[with dataBinding](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_example.xml)
+
+<img src="./blink_motion.gif" width="200px" />
+    
+#### This example changes the background when a layout is clicked within MVVM Databinding.
+
+[with MotionLayout](https://github.com/zladnrms/RoundableLayout/blob/master/app/src/main/res/layout/activity_motion_example.xml)
+
+<img src="./example_motion.gif" width="200px" />
+
+#### This example shows the use of animation through motionscene within motion layout.
 
 # License
 

@@ -65,6 +65,7 @@ class RoundableLayout : ConstraintLayout {
 
     private fun render(attrs: AttributeSet?) {
         attrs?.let {
+
             /** set corner radii */
             context.obtainStyledAttributes(it, R.styleable.RoundableLayout).apply {
                 cornerLeftTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop, 0).toFloat()
