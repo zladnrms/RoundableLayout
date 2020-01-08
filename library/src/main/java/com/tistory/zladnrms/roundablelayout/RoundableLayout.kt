@@ -2,6 +2,7 @@ package com.tistory.zladnrms.roundablelayout
 
 import android.annotation.TargetApi
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Path
@@ -50,10 +51,12 @@ class RoundableLayout : ConstraintLayout {
         defStyleAttr
     ) {
         render(attrs)
+        isValidSideOpt()
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         render(attrs)
+        isValidSideOpt()
     }
 
     constructor(context: Context) : super(context) {
@@ -62,7 +65,6 @@ class RoundableLayout : ConstraintLayout {
 
     private fun render(attrs: AttributeSet?) {
         attrs?.let {
-
             /** set corner radii */
             context.obtainStyledAttributes(it, R.styleable.RoundableLayout).apply {
                 cornerLeftTop = this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop, 0).toFloat()
@@ -88,7 +90,7 @@ class RoundableLayout : ConstraintLayout {
      * this is made in consideration of the custom attribute of motion layout.
      * because Constraint only has maximum two custom attribute. (2.0.0-beta2)
      */
-    private fun checkSideValue() {
+    private fun isValidSideOpt() {
         if (cornerLeftSide != 0F) {
             cornerLeftTop = cornerLeftSide
             cornerLeftBottom = cornerLeftSide
@@ -164,8 +166,6 @@ class RoundableLayout : ConstraintLayout {
             path = Path()
         }
 
-        checkSideValue()
-
         floatArrayOf(
             cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
             cornerRightBottom, cornerLeftBottom, cornerLeftBottom
@@ -180,23 +180,19 @@ class RoundableLayout : ConstraintLayout {
                 cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
             )
 
+            /** stroke and dash option */
             if (strokeWidth != 0 && strokeColor != null)
                 this.setStroke(strokeWidth, strokeColor!!, dashWidth, dashGap)
 
+            /** set background color */
             backgroundColor?.let {
-                /** set background color */
                 this.setColor(it)
-            } ?: this.setColor(Color.WHITE)
+            } ?: this.setColor(Color.WHITE) // set background color default : WHITE
 
-            Log.d("호호코스트2222222", "$backgroundColor")
-
-            /** set background color default : WHITE */
             background = this
         }
 
-
         outlineProvider = getOutlineProvider()
-
         clipChildren = false
 
         super.dispatchDraw(canvas)
