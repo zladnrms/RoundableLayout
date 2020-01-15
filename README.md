@@ -12,7 +12,7 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 ## Preview
 
 #### within MotionLayout
-<img src="./example_motion.gif" width="200px" />
+<img src="./example_motion.gif" width="200px" />     <img src="./example_motion2.gif" width="200px" />    
 
 #### Varius Customize
 <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
