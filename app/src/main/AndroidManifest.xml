@@ -12,10 +12,10 @@
             android:theme="@style/AppTheme">
         <activity android:name=".databinding_example.ExampleActivity"></activity>
         <activity
-                android:name=".motion_example.ExampleMotionActivity"
+                android:name=".basic_example.BasicExampleActivity"
                 android:screenOrientation="portrait" />
         <activity
-                android:name=".basic_example.BasicExampleActivity"
+                android:name=".motion_example.ExampleMotionActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
