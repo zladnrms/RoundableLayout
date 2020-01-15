@@ -52,10 +52,10 @@
                 motion:layout_constraintRight_toRightOf="parent"
                 motion:layout_constraintTop_toBottomOf="@id/layout_expand_motion">
             <CustomAttribute
-                    motion:attributeName="dashLineWidth"
-                    motion:customDimension="10dp" />
+                    motion:attributeName="backgroundColor"
+                    motion:customColorValue="#FFFFFF" />
             <CustomAttribute
-                    motion:attributeName="dashLineGap"
+                    motion:attributeName="strokeLineWidth"
                     motion:customDimension="10dp" />
         </Constraint>
     </ConstraintSet>
@@ -92,10 +92,10 @@
                 motion:layout_constraintRight_toRightOf="parent"
                 motion:layout_constraintTop_toBottomOf="@id/layout_expand_motion">
             <CustomAttribute
-                    motion:attributeName="dashLineWidth"
-                    motion:customDimension="30dp" />
+                    motion:attributeName="backgroundColor"
+                    motion:customColorValue="#222222" />
             <CustomAttribute
-                    motion:attributeName="dashLineGap"
+                    motion:attributeName="strokeLineWidth"
                     motion:customDimension="30dp" />
         </Constraint>
     </ConstraintSet>

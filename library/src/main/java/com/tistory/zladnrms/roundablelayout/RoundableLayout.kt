@@ -12,7 +12,9 @@ import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.ViewOutlineProvider
 import android.graphics.Outline
+import android.util.Log
 import android.view.View
+import androidx.annotation.ColorInt
 import java.lang.Exception
 
 
@@ -81,21 +83,24 @@ class RoundableLayout : ConstraintLayout {
 
     /** background color */
     var backgroundColor: Int? = null
-        set(value) {
+        set(@ColorInt value) {
             field = value
             postInvalidate()
         }
 
+    override fun setBackgroundColor(color: Int) {
+        backgroundColor = color
+    }
 
     /** stroke & dash options */
-    var strokeLineWidth: Int = 0
+    var strokeLineWidth: Float = 0F
         set(value) {
             field = value
             postInvalidate()
         }
 
-    var strokeLineColor: Int? = null
-        set(value) {
+    var strokeLineColor = 0XFFFFFFFF.toInt()
+        set(@ColorInt value) {
             field = value
             postInvalidate()
         }
@@ -148,7 +153,7 @@ class RoundableLayout : ConstraintLayout {
                 backgroundColor =
                     this.getColor(R.styleable.RoundableLayout_backgroundColor, Color.WHITE)
                 strokeLineWidth =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth, 0)
+                    this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth, 0).toFloat()
                 strokeLineColor =
                     this.getColor(R.styleable.RoundableLayout_strokeLineColor, Color.BLACK)
                 dashLineWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth, 0)
@@ -189,8 +194,8 @@ class RoundableLayout : ConstraintLayout {
                 cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
             )
 
-            if (strokeLineWidth != 0 && strokeLineColor != null)
-                this.setStroke(strokeLineWidth, strokeLineColor!!, dashLineWidth, dashLineGap)
+            if (strokeLineWidth != 0F && strokeLineColor != null)
+                this.setStroke(strokeLineWidth.toInt(), strokeLineColor!!, dashLineWidth, dashLineGap)
 
             backgroundColor?.let {
                 /** set background color */
