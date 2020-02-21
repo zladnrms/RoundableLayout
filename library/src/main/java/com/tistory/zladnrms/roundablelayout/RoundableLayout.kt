@@ -81,6 +81,18 @@ class RoundableLayout : ConstraintLayout {
         }
 
 
+    var cornerAll: Float = 0F
+        set(value) {
+            field = value
+
+            if (field != 0F) {
+                cornerLeftSide = field
+                cornerRightSide = field
+            }
+
+            postInvalidate()
+        }
+
     /** background color */
     var backgroundColor: Int? = null
         set(@ColorInt value) {
@@ -135,39 +147,43 @@ class RoundableLayout : ConstraintLayout {
 
     private fun render(attrs: AttributeSet?) {
         attrs?.let {
-
             /** set corner radii */
-            context.obtainStyledAttributes(it, R.styleable.RoundableLayout).apply {
+            with(context.obtainStyledAttributes(it, R.styleable.RoundableLayout)) {
                 cornerLeftTop =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftTop, 0)
                         .toFloat()
                 cornerRightTop =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightTop, 0)
                         .toFloat()
                 cornerLeftBottom =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftBottom, 0)
                         .toFloat()
                 cornerRightBottom =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightBottom, 0)
                         .toFloat()
                 backgroundColor =
-                    this.getColor(R.styleable.RoundableLayout_backgroundColor, Color.WHITE)
+                    getColor(R.styleable.RoundableLayout_backgroundColor, Color.WHITE)
                 strokeLineWidth =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth, 0).toFloat()
+                    getDimensionPixelSize(R.styleable.RoundableLayout_strokeLineWidth, 0)
+                        .toFloat()
                 strokeLineColor =
-                    this.getColor(R.styleable.RoundableLayout_strokeLineColor, Color.BLACK)
-                dashLineWidth = this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth, 0)
+                    getColor(R.styleable.RoundableLayout_strokeLineColor, Color.BLACK)
+                dashLineWidth =
+                    getDimensionPixelSize(R.styleable.RoundableLayout_dashLineWidth, 0)
                     .toFloat()
                 dashLineGap =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_dashLineGap, 0).toFloat()
+                    getDimensionPixelSize(R.styleable.RoundableLayout_dashLineGap, 0)
+                        .toFloat()
                 cornerLeftSide =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftSide, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerLeftSide, 0)
                         .toFloat()
                 cornerRightSide =
-                    this.getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightSide, 0)
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerRightSide, 0)
                         .toFloat()
-            }.run {
-                this.recycle()
+                cornerAll =
+                    getDimensionPixelSize(R.styleable.RoundableLayout_cornerAll, 0)
+                        .toFloat()
+                recycle()
             }
         }
     }
@@ -183,29 +199,24 @@ class RoundableLayout : ConstraintLayout {
         floatArrayOf(
             cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
             cornerRightBottom, cornerLeftBottom, cornerLeftBottom
-        ).apply {
-            clipPathCanvas(canvas, this)
+        ).let {
+            clipPathCanvas(canvas, it)
         }
 
         /** set drawable resource corner & background & stroke */
-        GradientDrawable().apply {
-            this.cornerRadii = floatArrayOf(
+        with(GradientDrawable()) {
+            cornerRadii = floatArrayOf(
                 cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
                 cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
             )
 
             if (strokeLineWidth != 0F && strokeLineColor != null)
-                this.setStroke(strokeLineWidth.toInt(), strokeLineColor!!, dashLineWidth, dashLineGap)
+                setStroke(strokeLineWidth.toInt(), strokeLineColor!!, dashLineWidth, dashLineGap)
 
-            backgroundColor?.let {
-                /** set background color */
-                this.setColor(it)
-            } ?: this.setColor(Color.WHITE)
+            setColor(backgroundColor ?: Color.WHITE)
 
-            /** set background color default : WHITE */
             background = this
         }
-
 
         outlineProvider = getOutlineProvider()
 

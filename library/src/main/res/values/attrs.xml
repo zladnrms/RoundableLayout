@@ -13,5 +13,7 @@
 
         <attr name="cornerLeftSide" format="dimension"/>
         <attr name="cornerRightSide" format="dimension"/>
+
+        <attr name="cornerAll" format="dimension"/>
     </declare-styleable>
 </resources>
