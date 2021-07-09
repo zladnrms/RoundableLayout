@@ -18,7 +18,7 @@ import androidx.annotation.ColorInt
 import java.lang.Exception
 
 
-class RoundableLayout : ConstraintLayout {
+open class RoundableLayout : ConstraintLayout {
 
     var path: Path? = null
 
