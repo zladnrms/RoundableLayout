@@ -210,15 +210,21 @@ class RoundableLayout : ConstraintLayout {
                 cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
             )
 
-            if (strokeLineWidth != 0F && strokeLineColor != null)
+            if (strokeLineWidth != 0F && strokeLineColor != null) {
                 setStroke(strokeLineWidth.toInt(), strokeLineColor!!, dashLineWidth, dashLineGap)
+            }
 
             setColor(backgroundColor ?: Color.WHITE)
 
             background = this
         }
 
-        outlineProvider = getOutlineProvider()
+        try {
+            val opv = getOutlineProvider()
+            outlineProvider = opv
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         clipChildren = false
 
