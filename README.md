@@ -17,10 +17,10 @@ When you implement a round corner layout, RoundableLayout is the best choice.
 #### Varius Customize
 <img src="./preview_hagaren2.png" width="200px" />    <img src="./preview_pocketmon.png" width="200px" />   <img src="./preview_screen.jpg" width="200px" />
 
-## What's New in _RoundableLayout_ 1.1.3?
+## What's New in _RoundableLayout_ 1.1.4?
 
 - code fixed
-- backgroundColor and strokeLineColor is enabled in MotionLayout
+- libray to open class (thx to rtsketo)
 		
 ## Installation
 
@@ -38,9 +38,8 @@ allprojects {
 Add the dependency in your app build.gradle
 ```gradle
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3 or high' // maybe already exists or add
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1 or high' // if you want to use motion layout
-    implementation 'com.github.zladnrms:RoundableLayout:1.1.3'
+    implementation 'com.github.zladnrms:RoundableLayout:1.1.4'
 }
 
 ```
